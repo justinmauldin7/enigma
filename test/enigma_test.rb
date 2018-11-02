@@ -58,4 +58,14 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, enigma.decrypt(encrypted, "02715")
   end
+
+  def test_it_encrypts_a_message_with_todays_date_and_random_key
+    enigma = Enigma.new
+    expected = {
+      encryption: "",
+      key: "",
+      date: Date.today
+    }
+    assert_equal expected, enigma.encrypt("hello world")
+  end
 end
