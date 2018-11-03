@@ -9,7 +9,7 @@ require 'pry'
 class EncryptTest < Minitest::Test
 
   def test_it_exists
-    enigma = Encrypt.new
+    encrypt = Encrypt.new
     assert_instance_of Encrypt, encrypt
   end
 end
