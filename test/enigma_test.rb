@@ -81,4 +81,10 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, enigma.encrypt("hello world")
   end
+
+  def test_you_can_square_the_date
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    assert_equal 968329924, enigma.squared_date(date)
+  end
 end
