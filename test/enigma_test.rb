@@ -64,6 +64,13 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.decrypt(encrypted, "02715")
   end
 
+  def test_it_can_generate_a_random_key
+    enigma = Enigma.new
+    random = Random.new
+    key = enigma.key_generator(random)
+    assert_equal true, (100..999).cover?(key.to_i)
+  end
+
   def test_it_encrypts_a_message_with_todays_date_and_random_key
     skip
     enigma = Enigma.new
@@ -73,5 +80,18 @@ class EnigmaTest < Minitest::Test
       date: Date.today
     }
     assert_equal expected, enigma.encrypt("hello world")
+  end
+
+  def test_you_can_square_the_date
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    assert_equal 968329924, enigma.squared_date(date)
+  end
+
+  def test_you_can_get_4_digit_offset
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    squared_date = enigma.squared_date(date)
+    assert_equal "9924", enigma.offsets(squared_date)
   end
 end
