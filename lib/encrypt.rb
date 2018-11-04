@@ -3,13 +3,9 @@ class Encrypt
               :key,
               :date
 
-  def initialize(message, key, date = Date.today)
+  def initialize(message, key, date)
     @message = message
     @key = key
     @date = date
   end
-
-  # def date_conversion
-  #   @date.strftime('%d%m%y')
-  # end
 end

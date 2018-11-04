@@ -36,14 +36,18 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.decrypt("keder ohulw", "02715", "040895")
   end
 
+  def test_it_can_convert_todays_date_to_a_formatted_string
+    enigma = Enigma.new
+    assert_equal "031118", enigma.date_conversion(Date.today)
+  end
+
   def test_it_encrypts_a_message_with_todays_date
-    skip
     enigma = Enigma.new
     encrypted = enigma.encrypt("hello world", "02715")
     expected = {
       encryption: "keder ohulw",
       key: "02715",
-      date: Date.today
+      date: "031118"
     }
     assert_equal expected, encrypted
   end
@@ -55,7 +59,7 @@ class EnigmaTest < Minitest::Test
     expected = {
       encryption: "hello world",
       key: "02715",
-      date: Date.today
+      date: "031118"
     }
     assert_equal expected, enigma.decrypt(encrypted, "02715")
   end
