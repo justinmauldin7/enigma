@@ -18,4 +18,8 @@ class Enigma
   def squared_date(date)
     date.to_i * date.to_i
   end
+
+  def offsets(squared_date)
+    squared_date.to_s[-4..-1]
+  end
 end

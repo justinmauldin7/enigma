@@ -87,4 +87,11 @@ class EnigmaTest < Minitest::Test
     date = enigma.date_conversion(Date.today)
     assert_equal 968329924, enigma.squared_date(date)
   end
+
+  def test_you_can_get_4_digit_offset
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    squared_date = enigma.squared_date(date)
+    assert_equal "9924", enigma.offsets(squared_date)
+  end
 end
