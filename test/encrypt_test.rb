@@ -19,4 +19,9 @@ class EncryptTest < Minitest::Test
     assert_equal "02715", encrypt.key
     assert_equal "040895", encrypt.date
   end
+
+  def test_it_can_convert_the_date_to_a_formatted_string
+    encrypt = Encrypt.new("hello world", "02715")
+    assert_equal "031118", encrypt.date
+  end
 end

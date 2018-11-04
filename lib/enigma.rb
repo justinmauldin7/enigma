@@ -4,8 +4,4 @@ class Enigma
 
   def decrypt(ciphertext, key, date = Date.today)
   end
-
-  def date_conversion(date)
-    date.strftime('%d%m%y')
-  end
 end
