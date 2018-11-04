@@ -64,6 +64,13 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.decrypt(encrypted, "02715")
   end
 
+  def test_it_can_generate_a_random_key
+    enigma = Enigma.new
+    random = Random.new
+    key = enigma.key_generator(random)
+    assert_equal true, (100..999).cover?(key.to_i)
+  end
+
   def test_it_encrypts_a_message_with_todays_date_and_random_key
     skip
     enigma = Enigma.new

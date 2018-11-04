@@ -8,4 +8,10 @@ class Enigma
   def date_conversion(date)
     date.strftime('%d%m%y')
   end
+
+  def key_generator(key)
+    x = 0
+  random_number = key.rand(100..999)
+  random_key = "#{x}#{random_number}"
+  end
 end
