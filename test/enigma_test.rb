@@ -106,9 +106,10 @@ class EnigmaTest < Minitest::Test
   def test_you_can_get_an_array_of_keys
     enigma = Enigma.new
     date = enigma.date_conversion(Date.today)
+    key = key_generator(key)
     squared_date = enigma.squared_date(date)
     offsets = enigma.offsets(squared_date)
     offset_array = enigma.offsets_array(offsets)
-    assert_equal ["02", "27", "71", "15"], enigma.keys_array(offset_array)
+    assert_equal ["02", "27", "71", "15"], enigma.keys_array(key)
   end
 end
