@@ -44,4 +44,8 @@ class Enigma
     key[1..2].to_i + offsets[1].to_i
   end
 
+  def c_shift(key, offsets)
+    key[2..3].to_i + offsets[2].to_i
+  end
+
 end
