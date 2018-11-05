@@ -36,4 +36,8 @@ class Enigma
     x
   end
 
+  def a_shift(key, offsets)
+    key[0..1].to_i + offsets[0].to_i
+  end
+
 end
