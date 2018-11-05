@@ -22,4 +22,10 @@ class Enigma
   def offsets(squared_date)
     squared_date.to_s[-4..-1]
   end
+
+  def offsets_array(offsets)
+    offsets.split('')
+  end
+
+  
 end
