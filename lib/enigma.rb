@@ -48,4 +48,8 @@ class Enigma
     key[2..3].to_i + offsets[2].to_i
   end
 
+  def d_shift(key, offsets)
+    key[3..4].to_i + offsets[3].to_i
+  end
+
 end
