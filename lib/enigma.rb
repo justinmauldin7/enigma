@@ -40,4 +40,8 @@ class Enigma
     key[0..1].to_i + offsets[0].to_i
   end
 
+  def b_shift(key, offsets)
+    key[1..2].to_i + offsets[1].to_i
+  end
+
 end
