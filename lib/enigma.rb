@@ -11,7 +11,7 @@ class Enigma
 
   def key_generator(key)
     x = 0
-  random_number = key.rand(100..999)
+  random_number = key.rand(1000..9999)
   random_key = "#{x}#{random_number}"
   end
 
@@ -27,5 +27,4 @@ class Enigma
     offsets.split('')
   end
 
-  
 end

@@ -68,7 +68,7 @@ class EnigmaTest < Minitest::Test
     enigma = Enigma.new
     random = Random.new
     key = enigma.key_generator(random)
-    assert_equal true, (100..999).cover?(key.to_i)
+    assert_equal true, (1000..9999).cover?(key.to_i)
   end
 
   def test_it_encrypts_a_message_with_todays_date_and_random_key
@@ -106,13 +106,14 @@ class EnigmaTest < Minitest::Test
   def test_you_can_get_an_array_of_keys
     enigma = Enigma.new
     date = enigma.date_conversion(Date.today)
-    
+
     random = Random.new
     key = enigma.key_generator(random)
 
     squared_date = enigma.squared_date(date)
     offsets = enigma.offsets(squared_date)
     offset_array = enigma.offsets_array(offsets)
+    binding.pry
     assert_equal ["02", "27", "71", "15"], enigma.keys_array(key)
   end
 end
