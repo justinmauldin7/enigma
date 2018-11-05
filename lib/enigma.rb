@@ -16,7 +16,7 @@ class Enigma
   end
 
   def squared_date(date)
-    date.to_i * date.to_i
+    date.to_i ** 2
   end
 
   def offsets(squared_date)
@@ -33,7 +33,6 @@ class Enigma
     x << key[1..2]
     x << key[2..3]
     x << key[3..4]
-    binding.pry
     x
   end
 

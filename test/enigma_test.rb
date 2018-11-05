@@ -106,9 +106,7 @@ class EnigmaTest < Minitest::Test
   def test_you_can_get_an_array_of_keys
     enigma = Enigma.new
     date = enigma.date_conversion(Date.today)
-
-    random = Random.new
-    key = enigma.key_generator(random)
+    key = "02715"
 
     squared_date = enigma.squared_date(date)
     offsets = enigma.offsets(squared_date)
