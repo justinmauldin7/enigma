@@ -113,4 +113,17 @@ class EnigmaTest < Minitest::Test
     offset_array = enigma.offsets_array(offsets)
     assert_equal ["02", "27", "71", "15"], enigma.keys_array(key)
   end
+
+  def test_the_shift_total_for_a_b_c_and_d
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
+
+    squared_date = enigma.squared_date(date)
+    offsets = enigma.offsets(squared_date)
+    assert_equal 11 , enigma.a_shift("02715")
+    assert_equal 36 , enigma.b_shift("02715")
+    assert_equal 73 , enigma.c_shift("02715")
+    assert_equal 19 , enigma.d_shift("02715")
+  end
 end
