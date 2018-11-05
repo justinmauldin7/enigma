@@ -113,7 +113,6 @@ class EnigmaTest < Minitest::Test
     squared_date = enigma.squared_date(date)
     offsets = enigma.offsets(squared_date)
     offset_array = enigma.offsets_array(offsets)
-    binding.pry
     assert_equal ["02", "27", "71", "15"], enigma.keys_array(key)
   end
 end

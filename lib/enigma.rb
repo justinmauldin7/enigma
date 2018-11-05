@@ -27,4 +27,14 @@ class Enigma
     offsets.split('')
   end
 
+  def keys_array(key)
+    x = []
+    x << key[0..1]
+    x << key[1..2]
+    x << key[2..3]
+    x << key[3..4]
+    binding.pry
+    x
+  end
+
 end
