@@ -121,9 +121,23 @@ class EnigmaTest < Minitest::Test
 
     squared_date = enigma.squared_date(date)
     offsets = enigma.offsets(squared_date)
-    assert_equal 11 , enigma.a_shift("02715", offsets)
-    assert_equal 36 , enigma.b_shift("02715", offsets)
-    assert_equal 73 , enigma.c_shift("02715", offsets)
-    assert_equal 19 , enigma.d_shift("02715", offsets)
+    enigma.a_shift("02715", offsets)
+    assert_equal 36 , enigma.b_shift(key, offsets)
+    assert_equal 73 , enigma.c_shift(key, offsets)
+    assert_equal 19 , enigma.d_shift(key, offsets)
+  end
+
+  def test_the_shift_can_be_simplified
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
+
+    squared_date = enigma.squared_date(date)
+    offsets = enigma.offsets(squared_date)
+    a_shift = enigma.a_shift(key, offsets)
+    b_shift = enigma.b_shift(key, offsets)
+    c_shift = enigma.c_shift(key, offsets)
+    d_shift = enigma.d_shift(key, offsets)
+    assert_equal , enigma.shift_converter(a_shift)
   end
 end
