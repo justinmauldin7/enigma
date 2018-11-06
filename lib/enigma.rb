@@ -52,4 +52,12 @@ class Enigma
     key[3..4].to_i + offsets[3].to_i
   end
 
+  def shift_converter(shift)
+    if shift < 27
+      shift
+    else
+      shift.modulo(27)
+    end
+  end
+
 end

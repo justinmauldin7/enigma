@@ -42,6 +42,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_encrypts_a_message_with_todays_date
+    skip
     enigma = Enigma.new
     encrypted = enigma.encrypt("hello world", "02715")
     expected = {
@@ -121,7 +122,7 @@ class EnigmaTest < Minitest::Test
 
     squared_date = enigma.squared_date(date)
     offsets = enigma.offsets(squared_date)
-    enigma.a_shift("02715", offsets)
+    assert_equal 11 , enigma.a_shift(key, offsets)
     assert_equal 36 , enigma.b_shift(key, offsets)
     assert_equal 73 , enigma.c_shift(key, offsets)
     assert_equal 19 , enigma.d_shift(key, offsets)
@@ -138,6 +139,6 @@ class EnigmaTest < Minitest::Test
     b_shift = enigma.b_shift(key, offsets)
     c_shift = enigma.c_shift(key, offsets)
     d_shift = enigma.d_shift(key, offsets)
-    assert_equal , enigma.shift_converter(a_shift)
+    assert_equal 11, enigma.shift_converter(a_shift)
   end
 end
