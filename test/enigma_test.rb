@@ -184,4 +184,12 @@ class EnigmaTest < Minitest::Test
     message_3 = "hello world!"
     assert_equal "snddziogbuw!", enigma.message_encrypt(message_3, key, date)
   end
+
+  def test_it_can_encrypt_a_multiword_message_with_capitalization
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
+    message_3 = "HELLO world!"
+    assert_equal "snddziogbuw!", enigma.message_encrypt(message_3, key, date)
+  end
 end
