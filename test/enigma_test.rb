@@ -42,6 +42,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_encrypts_a_message_with_todays_date
+    skip
     enigma = Enigma.new
     encrypted = enigma.encrypt("hello world", "02715")
     expected = {
@@ -112,5 +113,46 @@ class EnigmaTest < Minitest::Test
     offsets = enigma.offsets(squared_date)
     offset_array = enigma.offsets_array(offsets)
     assert_equal ["02", "27", "71", "15"], enigma.keys_array(key)
+  end
+
+  def test_the_shift_total_for_a_b_c_and_d
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
+
+    squared_date = enigma.squared_date(date)
+    offsets = enigma.offsets(squared_date)
+    assert_equal 11 , enigma.a_shift(key, offsets)
+    assert_equal 36 , enigma.b_shift(key, offsets)
+    assert_equal 73 , enigma.c_shift(key, offsets)
+    assert_equal 19 , enigma.d_shift(key, offsets)
+  end
+
+  def test_the_shift_can_be_simplified
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
+
+    squared_date = enigma.squared_date(date)
+    offsets = enigma.offsets(squared_date)
+    a_shift = enigma.a_shift(key, offsets)
+    b_shift = enigma.b_shift(key, offsets)
+    c_shift = enigma.c_shift(key, offsets)
+    d_shift = enigma.d_shift(key, offsets)
+    assert_equal 11, enigma.shift_converter(a_shift)
+    assert_equal 9, enigma.shift_converter(b_shift)
+    assert_equal 19, enigma.shift_converter(c_shift)
+    assert_equal 19, enigma.shift_converter(d_shift)
+  end
+
+  def test_there_is_a_character_set
+    enigma = Enigma.new
+    assert_equal 27, enigma.character_set.length
+  end
+
+  def test_it_can_return_an_array_of_the_message
+    enigma = Enigma.new
+    message = "hello world"
+    assert_equal 11, enigma.message_array(message).length
   end
 end
