@@ -196,8 +196,15 @@ class EnigmaTest < Minitest::Test
   def test_it_can_unshift_a_single_letter
     enigma = Enigma.new
     message = "s"
-    binding.pry 
     assert_equal "h", enigma.letter_unshift(11, message)
+  end
+
+  def test_it_can_decrypt_a_message
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
+    message = "snddz"
+    assert_equal "hello", enigma.message_decrypt(message, key, date)
   end
 
 end
