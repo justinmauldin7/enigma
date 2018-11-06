@@ -1,9 +1,4 @@
 class Enigma
-  def encrypt(message, key, date = Date.today)
-  end
-
-  def decrypt(ciphertext, key, date = Date.today)
-  end
 
   def date_conversion(date)
     date.strftime('%d%m%y')
@@ -65,5 +60,12 @@ def character_set
      "j", "k", "l", "m", "n", "o", "p", "q", "r",
       "s", "t", "u", "v", "w", "x", "y", "z", " "]
 end
+
+def encrypt(message, key, date = Date.today)
+end
+
+def decrypt(ciphertext, key, date = Date.today)
+end
+
 
 end

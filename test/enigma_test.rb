@@ -149,4 +149,10 @@ class EnigmaTest < Minitest::Test
     enigma = Enigma.new
     assert_equal 27, enigma.character_set.length
   end
+
+  def test_it_can_return_an_array_of_the_message
+    enigma = Enigma.new
+    message = "hello world"
+    assert_equal 11, enigma.message_array(message).length
+  end
 end
