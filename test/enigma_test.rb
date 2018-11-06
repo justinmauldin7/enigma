@@ -167,8 +167,21 @@ class EnigmaTest < Minitest::Test
     key = "02715"
     message = "hello"
     assert_equal "snddz", enigma.message_encrypt(message, key, date)
+  end
+
+  def test_it_can_encrypt_a_multiword_message
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
     message_2 = "hello world"
     assert_equal "snddziogbuw", enigma.message_encrypt(message_2, key, date)
   end
 
+  def test_it_can_encrypt_a_multiword_message_with_special_characters
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
+    message_3 = "hello world!"
+    assert_equal "snddziogbuw!", enigma.message_encrypt(message_3, key, date)
+  end
 end

@@ -67,14 +67,18 @@ def message_array(message)
 end
 
 def letter_shift(shift, letter)
-  index = character_set.index(letter)
-  character_set.rotate(shift)[index]
+  if character_set.include?(letter)
+    index = character_set.index(letter)
+    character_set.rotate(shift)[index]
+  else
+    letter
+  end
 end
 
 def message_encrypt(message, key, date)
+  word = ""
   squared = squared_date(date)
   offset = offsets(squared)
-  word = ""
   letters_array = message_array(message)
   letters_array.each_index do |index|
     if index % 4 == 0
