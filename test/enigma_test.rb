@@ -67,8 +67,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_generate_a_random_key
     enigma = Enigma.new
-    random = Random.new
-    key = enigma.key_generator(random)
+    key = enigma.key_generator
     assert_equal true, (1000..9999).cover?(key.to_i)
   end
 
@@ -160,6 +159,16 @@ class EnigmaTest < Minitest::Test
     enigma = Enigma.new
     message = "h"
     assert_equal "s", enigma.letter_shift(11, message)
+  end
+
+  def test_it_can_encrypt_a_message
+    enigma = Enigma.new
+    date = enigma.date_conversion(Date.today)
+    key = "02715"
+    message = "hello"
+    assert_equal "snddz", enigma.message_encrypt(message, key, date)
+    message_2 = "hello world"
+    assert_equal "snddziogbuw", enigma.message_encrypt(message_2, key, date)
   end
 
 end

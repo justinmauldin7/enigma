@@ -4,7 +4,8 @@ class Enigma
     date.strftime('%d%m%y')
   end
 
-  def key_generator(key)
+  def key_generator
+    key = Random.new
     x = 0
   random_number = key.rand(1000..9999)
   random_key = "#{x}#{random_number}"
@@ -62,12 +63,31 @@ def character_set
 end
 
 def message_array(message)
-  message.split('')
+  message.downcase.chars
 end
 
-def letter_shift(shift, message)
-  old_index = character_set.index(message)
-  character_set.rotate(shift)[old_index]
+def letter_shift(shift, letter)
+  index = character_set.index(letter)
+  character_set.rotate(shift)[index]
+end
+
+def message_encrypt(message, key, date)
+  squared = squared_date(date)
+  offset = offsets(squared)
+  word = ""
+  letters_array = message_array(message)
+  letters_array.each_index do |index|
+    if index % 4 == 0
+      word << letter_shift(a_shift(key, offset), letters_array[index])
+    elsif index % 4 == 1
+        word << letter_shift(b_shift(key, offset), letters_array[index])
+    elsif index % 4 == 2
+          word << letter_shift(c_shift(key, offset), letters_array[index])
+    elsif index % 4 == 3
+            word << letter_shift(d_shift(key, offset), letters_array[index])
+    end
+  end
+  word
 end
 
 def encrypt(message, key, date = Date.today)
