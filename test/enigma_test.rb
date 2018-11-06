@@ -192,4 +192,12 @@ class EnigmaTest < Minitest::Test
     message_3 = "HELLO world!"
     assert_equal "snddziogbuw!", enigma.message_encrypt(message_3, key, date)
   end
+
+  def test_it_can_unshift_a_single_letter
+    enigma = Enigma.new
+    message = "s"
+    binding.pry 
+    assert_equal "h", enigma.letter_unshift(11, message)
+  end
+
 end

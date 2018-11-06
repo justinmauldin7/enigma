@@ -94,6 +94,15 @@ def message_encrypt(message, key, date)
   word
 end
 
+def letter_unshift(shift, letter)
+  if character_set.include?(letter)
+    index = character_set.index(letter)
+    character_set.rotate(-(shift))[index]
+  else
+    letter
+  end
+end
+
 def encrypt(message, key, date = Date.today)
 end
 
