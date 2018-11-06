@@ -61,8 +61,13 @@ def character_set
       "s", "t", "u", "v", "w", "x", "y", "z", " "]
 end
 
-def message_array(message) 
+def message_array(message)
   message.split('')
+end
+
+def letter_shift(shift, message)
+  old_index = character_set.index(message)
+  character_set.rotate(shift)[old_index]
 end
 
 def encrypt(message, key, date = Date.today)

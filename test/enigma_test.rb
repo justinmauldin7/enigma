@@ -155,4 +155,11 @@ class EnigmaTest < Minitest::Test
     message = "hello world"
     assert_equal 11, enigma.message_array(message).length
   end
+
+  def test_it_can_shift_a_single_letter
+    enigma = Enigma.new
+    message = "h"
+    assert_equal "s", enigma.letter_shift(11, message)
+  end
+
 end
