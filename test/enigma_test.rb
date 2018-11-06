@@ -140,5 +140,13 @@ class EnigmaTest < Minitest::Test
     c_shift = enigma.c_shift(key, offsets)
     d_shift = enigma.d_shift(key, offsets)
     assert_equal 11, enigma.shift_converter(a_shift)
+    assert_equal 9, enigma.shift_converter(b_shift)
+    assert_equal 19, enigma.shift_converter(c_shift)
+    assert_equal 19, enigma.shift_converter(d_shift)
+  end
+
+  def test_there_is_a_character_set
+    enigma = Enigma.new
+    assert_equal 27, enigma.character_set.length
   end
 end
