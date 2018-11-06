@@ -75,7 +75,7 @@ def letter_shift(shift, letter)
   end
 end
 
-def message_encrypt(message, key, date)
+def message_encrypt(message, key, date = date_conversion(Date.today))
   word = ""
   squared = squared_date(date)
   offset = offsets(squared)
@@ -103,7 +103,7 @@ def letter_unshift(shift, letter)
   end
 end
 
-def message_decrypt(message, key, date)
+def message_decrypt(message, key, date = date_conversion(Date.today))
   word = ""
   squared = squared_date(date)
   offset = offsets(squared)
@@ -122,7 +122,10 @@ def message_decrypt(message, key, date)
   word
 end
 
-def encrypt(message, key, date = Date.today)
+def encrypt(message, key, date = date_conversion(Date.today))
+  encrypt_hash = { encryption: message_encrypt(message, key, date),
+    key: key,
+    date: date}
 end
 
 def decrypt(ciphertext, key, date = Date.today)
