@@ -61,6 +61,10 @@ def character_set
       "s", "t", "u", "v", "w", "x", "y", "z", " "]
 end
 
+def message_array(message) 
+  message.split('')
+end
+
 def encrypt(message, key, date = Date.today)
 end
 
