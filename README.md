@@ -1,42 +1,11 @@
-# enigma
+##Functionality:
+I think I deserve a 3 because the encryption and decryption are successfully working, and the encrypt/decrypt command line interfaces are successfully working.
 
+##Object Oriented Programming:
+I think I deserve a 3 because there are 4 classes, no more than 2 methods are longer than 7 lines, no class is longer than 100 lines, and variable and method names clearly communicate purpose.
 
-# INTERACTION PATTERN
-pry(main)> require 'date'
-#=> true
+##Test Driven Development:
+I think I deserve a 3 because every method is tested at both the unit and integration level, my git history demonstrates i am writing tests before implementing code, and my SimpleCov test coverage is 97.53%.
 
-pry(main)> require './lib/enigma'
-#=> true
-
-pry(main)> enigma = Enigma.new
-#=> #<Enigma:0x00007ff90f24cb78...>
-
-# encrypt a message with a key and date
-pry(main)> enigma.encrypt("hello world", "02715", "040895")
-#=>
-#   {
-#     encryption: "keder ohulw",
-#     key: "02715",
-#     date: "040895"
-#   }
-
-# decrypt a message with a key and date
-pry(main) > enigma.decrypt("keder ohulw", "02715", "040895")
-#=>
-#   {
-#     decryption: "hello world",
-#     key: "02715",
-#     date: "040895"
-#   }
-
-# encrypt a message with a key (uses today's date)
-pry(main)> encrypted = enigma.encrypt("hello world", "02715")
-#=> # encryption hash here
-
-#decrypt a message with a key (uses today's date)
-pry(main) > enigma.decrypt(encrypted, "02715")
-#=> # decryption hash here
-
-# encrypt a message (generates random key and uses today's date)
-pry(main)> enigma.encrypt("hello world")
-#=> # encryption hash here
+##Version Control:
+I think I deserve a 3 because i have well over 30 commits, over 10 pull requests, and my commits don't include multiple pieces of functionality.

@@ -1,0 +1,1 @@
+{:decryption=>"hlsfogcirsk!\n", :key=>"07295", :date=>"061118"}
