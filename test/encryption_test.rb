@@ -32,6 +32,11 @@ class EncryptionTest < Minitest::Test
     assert_equal 11, encrypt.shift.message_array(message).length
   end
 
+  def test_there_is_a_character_set
+    encrypt = Encryption.new
+    assert_equal 27, encrypt.shift.character_set.length
+  end
+
   def test_the_shift_total_for_a_b_c_and_d
     encrypt = Encryption.new
     date = "061118"
