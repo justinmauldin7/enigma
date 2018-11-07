@@ -6,7 +6,7 @@ require './lib/enigma'
 require 'date'
 require 'pry'
 
-class EnigmaTest < Minitest::Test
+ class EnigmaTest < Minitest::Test
 
   def test_it_exists
     enigma = Enigma.new
