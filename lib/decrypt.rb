@@ -9,7 +9,8 @@ read_encrypted_file = encrypted_file.read
 enigma = Enigma.new
 enigma.decryption
 enigma_decryption = enigma.decrypt(read_encrypted_file)
+converted_enigma_decryption = enigma_decryption[:decryption]
 
-decrypted_file.write(enigma_decryption)
+decrypted_file.write(converted_enigma_decryption)
 
 puts "Created #{ARGV[1]} with the key #{ARGV[2]} and date #{ARGV[3]}"
