@@ -1,4 +1,12 @@
 class Enigma
+  attr_reader :encryption,
+              :decryption
+
+  def initialize
+    @encryption = Encryption.new
+    @decryption = Decryption.new
+  end
+
   def date_conversion(date)
     date.strftime('%d%m%y')
   end
@@ -11,10 +19,10 @@ class Enigma
   end
 
   def encrypt(message, key = key_generator, date = date_conversion(Date.today))
-    {encryption: message_encrypt(message, key, date), key: key, date: date}
+    {encryption: @encryption.message_encrypt(message, key, date), key: key, date: date}
   end
 
   def decrypt(message, key = key_generator, date = date_conversion(Date.today))
-    {decryption: message_decrypt(message, key, date), key: key, date: date}
+    {decryption: @decryption.message_decrypt(message, key, date), key: key, date: date}
   end
 end
