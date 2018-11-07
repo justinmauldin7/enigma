@@ -11,16 +11,6 @@ class Enigma
     "#{x}#{random_number}"
   end
 
-
-  def letter_unshift(shift, letter)
-    if character_set.include?(letter)
-      index = character_set.index(letter)
-      character_set.rotate(-(shift))[index]
-    else
-      letter
-    end
-  end
-
   def message_decrypt(message, key = key_generator, date = date_conversion(Date.today))
     word = ""
     squared = squared_date(date)

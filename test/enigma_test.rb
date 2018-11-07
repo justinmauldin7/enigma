@@ -6,7 +6,7 @@ require './lib/enigma'
 require 'date'
 require 'pry'
 
- class EnigmaTest < Minitest::Test
+class EnigmaTest < Minitest::Test
 
   def test_it_exists
     enigma = Enigma.new
@@ -73,13 +73,9 @@ require 'pry'
     assert_equal "061118", enigma.encrypt("hello world")[:date]
   end
 
-  
 
-  def test_it_can_unshift_a_single_letter
-    enigma = Enigma.new
-    message = "s"
-    assert_equal "h", enigma.letter_unshift(11, message)
-  end
+
+
 
   def test_it_can_decrypt_a_message
     enigma = Enigma.new
