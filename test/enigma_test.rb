@@ -72,27 +72,5 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.decrypt("snddziogbuw", "02715")
   end
 
-  def test_it_can_decrypt_a_message
-    enigma = Enigma.new
-    date = enigma.date_conversion(Date.today)
-    key = "02715"
-    message = "snddz"
-    assert_equal "hello", enigma.message_decrypt(message, key, date)
-  end
-
-  def test_it_can_decrypt_a_multiword_message
-    enigma = Enigma.new
-    date = enigma.date_conversion(Date.today)
-    key = "02715"
-    message_2 = "snddziogbuw"
-    assert_equal "hello world", enigma.message_decrypt(message_2, key, date)
-  end
-
-  def test_it_can_decrypt_a_multiword_message_with_special_characters
-    enigma = Enigma.new
-    date = enigma.date_conversion(Date.today)
-    key = "02715"
-    message_3 = "snddziogbuw!"
-    assert_equal "hello world!", enigma.message_decrypt(message_3, key, date)
-  end
+  
 end

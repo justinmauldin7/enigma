@@ -8,9 +8,14 @@ require './lib/shift'
 
 class EncryptionTest < Minitest::Test
 
-  def test_a_shift_class_exists
+  def test_a_encryption_class_exists
     encrypt = Encryption.new
     assert_instance_of Encryption, encrypt
+  end
+
+  def test_a_encryption_class_has_access_to_the_shift_class
+    encrypt = Encryption.new
+    assert_instance_of Shift, encrypt.shift
   end
 
   def test_you_can_square_the_date

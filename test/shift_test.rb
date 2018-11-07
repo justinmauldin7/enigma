@@ -54,6 +54,6 @@ class ShiftTest < Minitest::Test
 
   def test_it_can_unshift_a_single_letter
     shift = Shift.new
-    assert_equal "h", shift.letter_shift(11, "s")
+    assert_equal "c", shift.letter_shift(11, "s")
   end
 end
