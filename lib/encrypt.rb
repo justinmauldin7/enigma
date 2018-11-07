@@ -9,7 +9,8 @@ read_message_file = message_file.read
 enigma = Enigma.new
 enigma.encryption
 enigma_encryption = enigma.encrypt(read_message_file)
+converted_enigma_encryption = enigma_encryption[:encryption]
 
-encrypted_file.write(enigma_encryption)
+encrypted_file.write(converted_enigma_encryption)
 
 puts "Created #{ARGV[1]} with the key #{enigma_encryption[:key]} and date #{enigma_encryption[:date]}"
