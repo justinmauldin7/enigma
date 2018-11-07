@@ -6,6 +6,7 @@ require './lib/enigma'
 require './lib/decryption'
 require './lib/encryption'
 require './lib/shift'
+require 'pry'
 
 class EnigmaTest < Minitest::Test
 
@@ -55,6 +56,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_encrypts_a_message_with_todays_date_and_random_key
     enigma = Enigma.new
+    binding.pry
     assert_equal 11 , enigma.encrypt("hello world")[:encryption].length
     assert_equal 5 , enigma.encrypt("hello world")[:key].length
     assert_equal 6 , enigma.encrypt("hello world")[:date].length

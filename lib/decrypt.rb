@@ -8,7 +8,7 @@ read_encrypted_file = encrypted_file.read
 
 enigma = Enigma.new
 enigma.decryption
-enigma_decryption = enigma.decrypt(read_encrypted_file)
+enigma_decryption = enigma.decrypt(read_encrypted_file,ARGV[2], ARGV[3])
 converted_enigma_decryption = enigma_decryption[:decryption]
 
 decrypted_file.write(converted_enigma_decryption)
