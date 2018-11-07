@@ -1,5 +1,4 @@
 class Enigma
-
   def date_conversion(date)
     date.strftime('%d%m%y')
   end
@@ -9,16 +8,6 @@ class Enigma
     x = 0
     random_number = key.rand(1000..9999)
     "#{x}#{random_number}"
-  end
-
-
-  def letter_unshift(shift, letter)
-    if character_set.include?(letter)
-      index = character_set.index(letter)
-      character_set.rotate(-(shift))[index]
-    else
-      letter
-    end
   end
 
   def message_decrypt(message, key = key_generator, date = date_conversion(Date.today))
