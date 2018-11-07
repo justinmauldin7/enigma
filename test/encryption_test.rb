@@ -5,7 +5,6 @@ require 'minitest/pride'
 require './lib/encryption'
 require './lib/shift'
 
-
 class EncryptionTest < Minitest::Test
 
   def test_a_encryption_class_exists

@@ -3,13 +3,25 @@ SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/enigma'
-require 'date'
+require './lib/decryption'
+require './lib/encryption'
+require './lib/shift'
 
 class EnigmaTest < Minitest::Test
 
   def test_it_exists
     enigma = Enigma.new
     assert_instance_of Enigma, enigma
+  end
+
+  def test_enigma_class_has_access_to_the_encryption_class
+    enigma = Enigma.new
+    assert_instance_of Encryption, enigma.encryption
+  end
+
+  def test_enigma_class_has_access_to_the_decryption_class
+    enigma = Enigma.new
+    assert_instance_of Decryption, enigma.decryption
   end
 
   def test_it_can_convert_todays_date_to_a_formatted_string
@@ -71,6 +83,4 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, enigma.decrypt("snddziogbuw", "02715")
   end
-
-  
 end
