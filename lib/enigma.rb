@@ -1,5 +1,4 @@
 class Enigma
-
   def date_conversion(date)
     date.strftime('%d%m%y')
   end
